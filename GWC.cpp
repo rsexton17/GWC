@@ -21,8 +21,10 @@ int NextPrime(int n) {
 }
 
 bool GWC(int ans, int num1, int num2, int num3) {
-  printf("%d=%d+%d+%d", ans, num1, num2, num3);
-  cout << endl;
+  if (ans % 2 == 0) {
+    cout << "Not odd\n";
+    return 0;
+  }
   if (ans == num1 + num2 + num3) {
     printf("%d=%d+%d+%d", ans, num1, num2, num3);
     return 1;
@@ -36,6 +38,7 @@ bool GWC(int ans, int num1, int num2, int num3) {
 int main() {
   int n = 0;
   while (true) {
+    cout << "Enter an odd number: ";
     cin >> n;
     GWC(n, 2, 2, 3);
     cout << endl;
