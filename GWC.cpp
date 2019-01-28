@@ -27,10 +27,9 @@ bool GWC(int ans, int num1, int num2, int num3) {
     printf("%d=%d+%d+%d", ans, num1, num2, num3);
     return 1;
   }
-  if (ans < num1 + num2 + num3) return 0;
-  else if (ans > num1 + num2 + num3) GWC(ans, num1, num2, NextPrime(num3));
-  else if (ans > num1 + num2 + num3) GWC(ans, num1, NextPrime(num2), num3);
-  else if (ans > num1 + num2 + num3) GWC(ans, NextPrime(num1), num2, num3);
+  else if (ans >= num1 + num2 + NextPrime(num3)) GWC(ans, num1, num2, NextPrime(num3));
+  else if (ans >= num1 + NextPrime(num2) + num3) GWC(ans, num1, NextPrime(num2), num3);
+  else if (ans >= NextPrime(num1) + num2 + num3) GWC(ans, NextPrime(num1), num2, num3);
   else return 0;
 }
 
